@@ -1,0 +1,205 @@
+[
+    {
+        "id": "cdf16760e6d096e6",
+        "type": "group",
+        "z": "d3c9a5d99c6d7cb8",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "b3c12cec414dba0d",
+            "2437388c4ed0a625",
+            "df907d71f496e6c3",
+            "da95acb871b4654d",
+            "f5b7dedba537d2f5",
+            "5d2da1831d5e0ce0",
+            "68068dc71328acd3"
+        ],
+        "x": 74,
+        "y": 1579,
+        "w": 752,
+        "h": 262
+    },
+    {
+        "id": "b3c12cec414dba0d",
+        "type": "change",
+        "z": "d3c9a5d99c6d7cb8",
+        "g": "cdf16760e6d096e6",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "udiTimeOut_ms",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 1620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2437388c4ed0a625",
+        "type": "change",
+        "z": "d3c9a5d99c6d7cb8",
+        "g": "cdf16760e6d096e6",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "rLimitOpen_mm",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 1680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "df907d71f496e6c3",
+        "type": "change",
+        "z": "d3c9a5d99c6d7cb8",
+        "g": "cdf16760e6d096e6",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "rLimitClosed_mm",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 1740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "da95acb871b4654d",
+        "type": "inject",
+        "z": "d3c9a5d99c6d7cb8",
+        "g": "cdf16760e6d096e6",
+        "name": "Time Out ms",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "400",
+        "payloadType": "num",
+        "x": 190,
+        "y": 1620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f5b7dedba537d2f5",
+        "type": "inject",
+        "z": "d3c9a5d99c6d7cb8",
+        "g": "cdf16760e6d096e6",
+        "name": "Limit Open",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 190,
+        "y": 1680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5d2da1831d5e0ce0",
+        "type": "inject",
+        "z": "d3c9a5d99c6d7cb8",
+        "g": "cdf16760e6d096e6",
+        "name": "Limit Closed",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "9",
+        "payloadType": "num",
+        "x": 190,
+        "y": 1740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "68068dc71328acd3",
+        "type": "comment",
+        "z": "d3c9a5d99c6d7cb8",
+        "g": "cdf16760e6d096e6",
+        "name": "Set limits",
+        "info": "",
+        "x": 160,
+        "y": 1800,
+        "wires": []
+    }
+]

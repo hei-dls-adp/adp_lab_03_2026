@@ -30,6 +30,10 @@ In this practical exercise, we will take our first steps with a robot. It is imp
 
 ---
 
+## Summary
+
+---
+
 # First part: at home.
 
 Base layout for this page is : ``Notebook``.
@@ -76,6 +80,7 @@ In you first page, you can add 3 groups:
 - Inject 400 once for TimeOut and tooltip is ``Base is 400``.
 - Inject 1 once for Limit Open and tooltip is ``Base is 1``.
 - Inject 9 once for Limit Closed and tooltip is ``Base is 9``.
+- Palyoad of Enable Gripper is ``true``, ``false`` for Disable Gripper.
 - See below for radio buttons settings.
 
 <div align="center">
@@ -254,9 +259,187 @@ At this step, if the machine is in manual mode and execute state, it should be p
 # Working with an I_Interface
 You should be able to connect and activate the gripper using an Interface.
 
+```mermaid
+---
+title: I_Gripper
+---
+classDiagram
 
+class FB_Gripper {
+    +InOp BOOL
+    +IsClosed BOOL
+    +IsOpen BOOL
+    +M_EnableDevice(Enable : BOOL) DINT
+    +M_SetOpen(rLimitOpen_mm : REAL, udiTimeOut_ms : UDINT) DINT
+    +M_SetClose(rLimitClose_mm : REAL, udiTimeOut_ms : UDINT) DINT
+}
 
+```
+
+This UML block tells you that a Function Block FB_Gripper has 3 properties, and more, and 3 methods.
 
 ---
+
+## Connect to properties
+
+
+
+<div align="center">
+<figure>
+  <img src="./img/Get_Gripper_Property.png"
+     alt="Image lost: Get_Gripper_Property"
+     width="600">
+  <figcaption>Get Gripper Property</figcaption>
+</figure>
+</div>
+
+Property InOp is here: ``plc/app/Application/sym/PRG_Unit/emRobot/cmModuleGripper/fbI_Gripper/InOp``.
+
+After InOp, you can link IsClosed and IsOpen using this function
+
+```js
+// Get Property
+var newMsg = {};
+if (msg.payload) {
+  //  block of code to be executed if the condition is true
+  newMsg.payload = 1
+} else {
+  //  block of code to be executed if the condition is false
+  newMsg.payload = 2  
+}
+
+return newMsg;
+```
+
+**Properties** from an external interface point of view are like variables with restricted access for read or write.
+
+**Methods** are more or less like functions. Here for example, we use methods with arguments to open or close a gripper. The arguments are variables set with limits, see below.
+
+---
+
+## Connect limits
+Limits does not send data to the PLC, they store local variables. As we still did not speak about local variables, you can simply **import** ``adp_lab_03_2026\node_red_base\To Insert in your flows\TimeAndLimitsflows.json`` and link nodes to your widgets.
+
+The flow you import will set internal variables. These internal variables will be used by the methods below.
+
+<div align="center">
+<figure>
+  <img src="./img/ContextWithLimits.png"
+     alt="Image lost: ContextWithLimits"
+     width="600">
+  <figcaption>Variable inside one flow</figcaption>
+</figure>
+</div>
+
+:bulb: It is sometimes necessary to refresh the context. Note that these variables, like any message in Node-RED, will only be written when the node in question has received at least one message.
+
+---
+
+## Connect methods
+
+### M_EnableDevice
+
+<div align="center">
+<figure>
+  <img src="./img/M_EnableDevice.png"
+     alt="Image lost: M_EnableDevice"
+     width="600">
+  <figcaption>M_EnableDevice</figcaption>
+</figure>
+</div>
+
+We enable the gripper, like a *Power On* or *Power Off* with a method and an argument. The argument is an object with the name of the argument. See code below for
+
+```js
+// M_EnableDevice
+var newMsg = {};
+newMsg.payload = {
+    type: "object",
+    value: {
+        "Enable": msg.payload
+    }
+}
+return newMsg;
+```
+
+### M_SetOpen M_SetClosed
+
+<div align="center">
+<figure>
+  <img src="./img/M_SetOpen_M_SetClosed.png"
+     alt="Image lost: M_SetOpen_M_SetClosed"
+     width="600">
+  <figcaption>M SetOpen and M_SetClosed</figcaption>
+</figure>
+</div>
+
+Use the function below. Note that these functions use internal variables for limits for which you have inserted a flow.
+
+```js
+// M_SetOpen
+var newMsg = {};
+
+newMsg.payload = {
+    type: "object",
+    value: {
+        "rLimitOpen_mm": flow.get('rLimitOpen_mm'),
+        "udiTimeOut_ms":flow.get('udiTimeOut_ms')
+    }
+}
+return newMsg;
+```
+
+```js
+// M_SetClosed
+var newMsg = {};
+
+newMsg.payload = {
+    type: "object",
+    value: {
+        "rLimitClosed_mm": flow.get('rLimitClosed_mm'),
+        "udiTimeOut_ms":flow.get('udiTimeOut_ms')
+    }
+}
+return newMsg;
+```
+
+---
+
+## Check your work
+
+<b style='color:red;'>A code without test has strictly no value</b>
+
+
+|Function|UI done |Linked|Tested|
+|--------|---|------|------|
+|Set Mode|
+|Read Mode|
+|Read Time|
+|Set Clear|
+|Set Reset|
+|Set Start|
+|Set Stop|
+|Read State|
+|
+|Set Open|
+|Set Close
+|Set TimeOut
+|Set Limit Open
+|Set Limit Closed
+|
+|Enable Gripper
+|Disable Gripper
+|Read InOp
+|Read IsClosed
+|Read IsOpen
+|
+|Read x position
+|Read y position
+|Read z position
+|Set x position
+|Set Y position
+|Set z position
+
+At the end of this work, you have to send you flow to the supervisor.
 
 <!-- First steps with a robot-->
