@@ -1,0 +1,315 @@
+[
+    {
+        "id": "b6090bcb4f099cbc",
+        "type": "ui-text",
+        "z": "f479262664cd75e2",
+        "g": "656f8236cb67e430",
+        "group": "f52f774838673224",
+        "order": 11,
+        "width": "0",
+        "height": "0",
+        "name": "",
+        "label": "First Alarm: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "x": 750,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "d259a6a16e0d83e3",
+        "type": "ctrlx-datalayer-subscribe",
+        "z": "f479262664cd75e2",
+        "g": "656f8236cb67e430",
+        "subscription": "c5b0190b901ecb86",
+        "path": "plc/app/Application/sym/PackTag/Admin/Alarm/0",
+        "name": "",
+        "inputs": 0,
+        "x": 220,
+        "y": 60,
+        "wires": [
+            [
+                "3f4e5a85d20d465a"
+            ]
+        ]
+    },
+    {
+        "id": "6cf33825ef3e24de",
+        "type": "ui-text",
+        "z": "f479262664cd75e2",
+        "g": "656f8236cb67e430",
+        "group": "f52f774838673224",
+        "order": 12,
+        "width": "0",
+        "height": "0",
+        "name": "",
+        "label": "First Warning :  ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "x": 760,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "1427dd2c7b33fd68",
+        "type": "ctrlx-datalayer-subscribe",
+        "z": "f479262664cd75e2",
+        "g": "656f8236cb67e430",
+        "subscription": "c5b0190b901ecb86",
+        "path": "plc/app/Application/sym/PackTag/Admin/Warning/0",
+        "name": "",
+        "inputs": 0,
+        "x": 230,
+        "y": 120,
+        "wires": [
+            [
+                "d5163a66c3a6767c"
+            ]
+        ]
+    },
+    {
+        "id": "1942f3c95083713f",
+        "type": "ui-text",
+        "z": "f479262664cd75e2",
+        "g": "656f8236cb67e430",
+        "group": "f52f774838673224",
+        "order": 13,
+        "width": "0",
+        "height": "0",
+        "name": "",
+        "label": "Stop Reason :  ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "x": 760,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "57e7c2258dc1f648",
+        "type": "ctrlx-datalayer-subscribe",
+        "z": "f479262664cd75e2",
+        "g": "656f8236cb67e430",
+        "subscription": "c5b0190b901ecb86",
+        "path": "plc/app/Application/sym/PackTag/Admin/StopReason",
+        "name": "",
+        "inputs": 0,
+        "x": 230,
+        "y": 180,
+        "wires": [
+            [
+                "03ecd3d8ea450582"
+            ]
+        ]
+    },
+    {
+        "id": "fd3f6f5b124c4728",
+        "type": "debug",
+        "z": "f479262664cd75e2",
+        "g": "656f8236cb67e430",
+        "name": "Alarm One",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "3f4e5a85d20d465a",
+        "type": "function",
+        "z": "f479262664cd75e2",
+        "g": "656f8236cb67e430",
+        "name": "First Alarm",
+        "func": "// Get Base message\nlet newMsg = msg;\nlet alarmText = \"Trigger \";\n\nif (newMsg.payload.DateTime < 1){\n    alarmText = \"No Alarm\";\n} else {\n    // convertir en millisecondes\n    const date = new Date(newMsg.payload.DateTime * 1000);\n    // format texte local\n    const dateString = date.toLocaleString('fr-CH', {timeZone: 'UTC' });\n\n    alarmText = alarmText.concat(newMsg.payload.Trigger,\n                    \", ID \", \n                    newMsg.payload.ID,\n                    \", \",\n                    newMsg.payload.Message,\n                    \", DateTime: \",\n                    dateString);\n\n}\nnewMsg.payload = alarmText;\n\nreturn newMsg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 60,
+        "wires": [
+            [
+                "b6090bcb4f099cbc",
+                "fd3f6f5b124c4728"
+            ]
+        ]
+    },
+    {
+        "id": "d5163a66c3a6767c",
+        "type": "function",
+        "z": "f479262664cd75e2",
+        "g": "656f8236cb67e430",
+        "name": "First Warning",
+        "func": "// Get Base message\nlet newMsg = msg;\nlet alarmText = \"Trigger \";\n\nif (newMsg.payload.DateTime < 1){\n    alarmText = \"No Warning\";\n} else {\n    // convertir en millisecondes\n    const date = new Date(newMsg.payload.DateTime * 1000);\n    // format texte local\n    const dateString = date.toLocaleString('fr-CH', {timeZone: 'UTC' });\n\n    alarmText = alarmText.concat(newMsg.payload.Trigger,\n                    \", ID \", \n                    newMsg.payload.ID,\n                    \", \",\n                    newMsg.payload.Message,\n                    \", DateTime: \",\n                    dateString);\n\n}\nnewMsg.payload = alarmText;\n\nreturn newMsg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 120,
+        "wires": [
+            [
+                "6cf33825ef3e24de"
+            ]
+        ]
+    },
+    {
+        "id": "03ecd3d8ea450582",
+        "type": "function",
+        "z": "f479262664cd75e2",
+        "g": "656f8236cb67e430",
+        "name": "First Alarm",
+        "func": "// Get Base message\nlet newMsg = msg;\nlet alarmText = \"Trigger \";\n\nif (newMsg.payload.DateTime < 1){\n    alarmText = \"No Alarm\";\n} else {\n    // convertir en millisecondes\n    const date = new Date(newMsg.payload.DateTime * 1000);\n    // format texte local\n    const dateString = date.toLocaleString('fr-CH', {timeZone: 'UTC' });\n\n    alarmText = alarmText.concat(newMsg.payload.Trigger,\n                    \", ID \", \n                    newMsg.payload.ID,\n                    \", \",\n                    newMsg.payload.Message,\n                    \", DateTime: \",\n                    dateString);\n\n}\nnewMsg.payload = alarmText;\n\nreturn newMsg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 180,
+        "wires": [
+            [
+                "1942f3c95083713f"
+            ]
+        ]
+    },
+    {
+        "id": "f52f774838673224",
+        "type": "ui-group",
+        "name": "Commands and states",
+        "page": "66c6923e3822666a",
+        "width": "6",
+        "height": "1",
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "c5b0190b901ecb86",
+        "type": "ctrlx-config-subscription",
+        "device": "e45e312c80fc001e",
+        "name": "Subscribe",
+        "publishIntervalMs": "10",
+        "publishIntervalUnits": "milliseconds",
+        "samplingInterval": "",
+        "samplingIntervalUnits": "seconds",
+        "errorInterval": "",
+        "errorIntervalUnits": "seconds",
+        "keepaliveInterval": "",
+        "keepaliveIntervalUnits": "minutes",
+        "queueSize": "",
+        "queueBehaviour": "DiscardOldest",
+        "deadbandValue": ""
+    },
+    {
+        "id": "66c6923e3822666a",
+        "type": "ui-page",
+        "name": "User Interface for Lab OO",
+        "ui": "926d3079c9560d19",
+        "path": "/robot",
+        "icon": "robot-happy-outline",
+        "layout": "notebook",
+        "theme": "8966a7b403a8fb88",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "e45e312c80fc001e",
+        "type": "ctrlx-config",
+        "name": "Nodered_CtrlX",
+        "hostname": "192.168.1.111",
+        "debug": false
+    },
+    {
+        "id": "926d3079c9560d19",
+        "type": "ui-base",
+        "name": "Home",
+        "path": "/dashboard",
+        "appIcon": "factory",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "navigationStyle": "fixed",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": "1",
+        "showDisconnectNotification": true
+    },
+    {
+        "id": "8966a7b403a8fb88",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094ce",
+            "bgPage": "#8080ff",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    }
+]

@@ -70,7 +70,7 @@
             "4c3d0833f9aa8ad5"
         ],
         "x": 34,
-        "y": 579,
+        "y": 719,
         "w": 982,
         "h": 222
     },
@@ -420,6 +420,12 @@
             "24e0eb8b4aad0a0f",
             "a3990a60b44254b8",
             "9339e55232306223",
+            "35a275644c670c96",
+            "2cf51e4ad9793a8e",
+            "93976703f72dfc6c",
+            "1276722ad619e092",
+            "6783bc468d29d40e",
+            "80e64c45d11479fd",
             "c29d9336b0c77903",
             "157f10cdc4f26be2",
             "ec2b8c94d81150cf",
@@ -435,7 +441,7 @@
         "x": 34,
         "y": 119,
         "w": 892,
-        "h": 422
+        "h": 562
     },
     {
         "id": "4a40fefeda96376c",
@@ -497,7 +503,7 @@
             "55da42dff1aff608"
         ],
         "x": 34,
-        "y": 839,
+        "y": 959,
         "w": 852,
         "h": 282
     },
@@ -955,7 +961,7 @@
         "name": "",
         "inputs": 0,
         "x": 250,
-        "y": 760,
+        "y": 900,
         "wires": [
             [
                 "c49cf2bce7d87104"
@@ -968,7 +974,7 @@
         "z": "f479262664cd75e2",
         "g": "7b313a45e45d8c67",
         "group": "f52f774838673224",
-        "order": 8,
+        "order": 9,
         "width": "3",
         "height": "1",
         "name": "",
@@ -984,7 +990,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 580,
-        "y": 760,
+        "y": 900,
         "wires": []
     },
     {
@@ -997,7 +1003,7 @@
         "name": "",
         "inputs": 0,
         "x": 260,
-        "y": 700,
+        "y": 840,
         "wires": [
             [
                 "4c3d0833f9aa8ad5"
@@ -1024,7 +1030,7 @@
         "wrapText": false,
         "className": "",
         "x": 610,
-        "y": 700,
+        "y": 840,
         "wires": []
     },
     {
@@ -1197,7 +1203,7 @@
         "name": "",
         "inputs": 0,
         "x": 230,
-        "y": 620,
+        "y": 760,
         "wires": [
             [
                 "9bd81e8275e8f9fc"
@@ -1226,7 +1232,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 700,
-        "y": 620,
+        "y": 760,
         "wires": []
     },
     {
@@ -1237,7 +1243,7 @@
         "name": "Get Current Mode, State and Time",
         "info": "",
         "x": 850,
-        "y": 760,
+        "y": 900,
         "wires": []
     },
     {
@@ -1248,7 +1254,7 @@
         "group": "f52f774838673224",
         "name": "",
         "label": "Stop",
-        "order": 7,
+        "order": 8,
         "width": "3",
         "height": "1",
         "emulateClick": false,
@@ -1317,6 +1323,166 @@
         "y": 440,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "35a275644c670c96",
+        "type": "ui-button",
+        "z": "f479262664cd75e2",
+        "d": true,
+        "g": "656f8236cb67e430",
+        "group": "f52f774838673224",
+        "name": "",
+        "label": "Hold",
+        "order": 10,
+        "width": "3",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "hand-back-left",
+        "iconPosition": "left",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "true",
+        "topicType": "msg",
+        "buttonColor": "yellow",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 110,
+        "y": 500,
+        "wires": [
+            [
+                "2cf51e4ad9793a8e"
+            ]
+        ]
+    },
+    {
+        "id": "2cf51e4ad9793a8e",
+        "type": "function",
+        "z": "f479262664cd75e2",
+        "d": true,
+        "g": "656f8236cb67e430",
+        "name": "bool8 TRUE",
+        "func": "msg.payload = {type:\"bool8\",value:true};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 500,
+        "wires": [
+            [
+                "93976703f72dfc6c"
+            ]
+        ]
+    },
+    {
+        "id": "93976703f72dfc6c",
+        "type": "ctrlx-datalayer-request",
+        "z": "f479262664cd75e2",
+        "d": true,
+        "g": "656f8236cb67e430",
+        "device": "e45e312c80fc001e",
+        "method": "WRITE",
+        "path": "plc/app/Application/sym/PackTag/hevsUI/uiCmdHold",
+        "payloadFormat": "value_type",
+        "name": "Hold",
+        "pendingWarnLevel": 50,
+        "pendingErrorLevel": 100,
+        "x": 590,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1276722ad619e092",
+        "type": "ui-button",
+        "z": "f479262664cd75e2",
+        "d": true,
+        "g": "656f8236cb67e430",
+        "group": "f52f774838673224",
+        "name": "",
+        "label": "Unhold",
+        "order": 7,
+        "width": "3",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "hand-back-left-off",
+        "iconPosition": "left",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "true",
+        "topicType": "msg",
+        "buttonColor": "green",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 120,
+        "y": 560,
+        "wires": [
+            [
+                "6783bc468d29d40e"
+            ]
+        ]
+    },
+    {
+        "id": "6783bc468d29d40e",
+        "type": "function",
+        "z": "f479262664cd75e2",
+        "d": true,
+        "g": "656f8236cb67e430",
+        "name": "bool8 FALSE",
+        "func": "msg.payload = {type:\"bool8\",value:false};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 560,
+        "wires": [
+            [
+                "93976703f72dfc6c"
+            ]
+        ]
+    },
+    {
+        "id": "80e64c45d11479fd",
+        "type": "link in",
+        "z": "f479262664cd75e2",
+        "g": "656f8236cb67e430",
+        "name": "link in 2",
+        "links": [],
+        "x": 95,
+        "y": 640,
+        "wires": [
+            [
+                "6783bc468d29d40e"
+            ]
         ]
     },
     {
@@ -1560,8 +1726,8 @@
         "g": "656f8236cb67e430",
         "name": "Commands and states",
         "info": "",
-        "x": 160,
-        "y": 500,
+        "x": 640,
+        "y": 620,
         "wires": []
     },
     {
@@ -1586,7 +1752,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 770,
-        "y": 920,
+        "y": 1040,
         "wires": []
     },
     {
@@ -1599,7 +1765,7 @@
         "name": "",
         "inputs": 0,
         "x": 260,
-        "y": 920,
+        "y": 1040,
         "wires": [
             [
                 "3f4e5a85d20d465a"
@@ -1628,7 +1794,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 780,
-        "y": 980,
+        "y": 1100,
         "wires": []
     },
     {
@@ -1641,7 +1807,7 @@
         "name": "",
         "inputs": 0,
         "x": 250,
-        "y": 980,
+        "y": 1100,
         "wires": [
             [
                 "d5163a66c3a6767c"
@@ -1670,7 +1836,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 780,
-        "y": 1040,
+        "y": 1160,
         "wires": []
     },
     {
@@ -1683,7 +1849,7 @@
         "name": "",
         "inputs": 0,
         "x": 250,
-        "y": 1040,
+        "y": 1160,
         "wires": [
             [
                 "03ecd3d8ea450582"
@@ -1705,7 +1871,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 770,
-        "y": 880,
+        "y": 1000,
         "wires": []
     },
     {
@@ -1722,7 +1888,7 @@
         "finalize": "",
         "libs": [],
         "x": 570,
-        "y": 920,
+        "y": 1040,
         "wires": [
             [
                 "b6090bcb4f099cbc",
@@ -1744,7 +1910,7 @@
         "finalize": "",
         "libs": [],
         "x": 570,
-        "y": 980,
+        "y": 1100,
         "wires": [
             [
                 "6cf33825ef3e24de"
@@ -1765,7 +1931,7 @@
         "finalize": "",
         "libs": [],
         "x": 570,
-        "y": 1040,
+        "y": 1160,
         "wires": [
             [
                 "1942f3c95083713f"
@@ -1780,7 +1946,7 @@
         "name": "Alarms",
         "info": "",
         "x": 110,
-        "y": 1080,
+        "y": 1200,
         "wires": []
     },
     {
