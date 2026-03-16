@@ -28,6 +28,43 @@ Author: [Cédric Lenoir](mailto:cedric.lenoir@hevs.ch)
 
 In this practical exercise, we will take our first steps with a robot. It is important to keep in mind that we are not working with a commercial robot, but with a prototype robot. This robot is regularly programmed and used in various configurations by different students.
 
+## Check your knowledge
+
+### Function
+  
+:bulb: In the lab, you will need to add functions like this one. The corresponding JavaScript code is provided for each function.
+
+<div align="center">
+<figure>
+  <img src="./img/Node_Red_Function.png"
+     alt="Image lost: Node_Red_Function"
+     width="200">
+  <figcaption>Node-RED function</figcaption>
+</figure>
+</div>
+
+Check if you can insert code for a function of this type:
+
+<div align="center">
+<figure>
+  <img src="./img/Node_RED_Learning_Function_Hello_World.png"
+     alt="Image lost: Node_RED_Learning_Function_Hello_World"
+     width="400">
+  <figcaption>Node-RED function with 'Hello World!'</figcaption>
+</figure>
+</div>
+
+```js
+// Function Hello World
+msg.payload = 'Hello World'
+return msg;
+```
+
+### Insert json script
+:bulb: In the lab you will have to insert/import a portion of json code in your flow.
+Check if you are able to import this file from the repository of the lab: ``..\adp_lab_03_2026\node_red_base\To Insert in your flows\``**HelloWorld.json**
+
+
 ---
 
 ## Summary

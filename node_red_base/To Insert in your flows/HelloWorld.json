@@ -1,0 +1,188 @@
+[
+    {
+        "id": "cb2700aa7a5a305f",
+        "type": "group",
+        "z": "2c31763846faff4a",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "8d888fe8f1cbcde8",
+            "518269990e78bda2",
+            "9385fbee36949adb"
+        ],
+        "x": 34,
+        "y": 779,
+        "w": 392,
+        "h": 142
+    },
+    {
+        "id": "8d888fe8f1cbcde8",
+        "type": "ui-button",
+        "z": "2c31763846faff4a",
+        "g": "cb2700aa7a5a305f",
+        "group": "e1f3bcea95b360ed",
+        "name": "",
+        "label": "Hello World !",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "web",
+        "iconPosition": "left",
+        "payload": "Hello World !",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 130,
+        "y": 820,
+        "wires": [
+            [
+                "518269990e78bda2"
+            ]
+        ]
+    },
+    {
+        "id": "518269990e78bda2",
+        "type": "ui-text",
+        "z": "2c31763846faff4a",
+        "g": "cb2700aa7a5a305f",
+        "group": "e1f3bcea95b360ed",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "It says: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 340,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "9385fbee36949adb",
+        "type": "comment",
+        "z": "2c31763846faff4a",
+        "g": "cb2700aa7a5a305f",
+        "name": "Say Hello !",
+        "info": "",
+        "x": 120,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "e1f3bcea95b360ed",
+        "type": "ui-group",
+        "name": "Test Alarms and Warnings",
+        "page": "5e3f352f60d7af69",
+        "width": "6",
+        "height": "1",
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "5e3f352f60d7af69",
+        "type": "ui-page",
+        "name": "Learning",
+        "ui": "926d3079c9560d19",
+        "path": "/page3",
+        "icon": "school",
+        "layout": "notebook",
+        "theme": "8966a7b403a8fb88",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 5,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "926d3079c9560d19",
+        "type": "ui-base",
+        "name": "Home",
+        "path": "/dashboard",
+        "appIcon": "factory",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "navigationStyle": "fixed",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": "1",
+        "showDisconnectNotification": true
+    },
+    {
+        "id": "8966a7b403a8fb88",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094ce",
+            "bgPage": "#8080ff",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    }
+]
