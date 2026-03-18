@@ -13,7 +13,7 @@ Author: [Cédric Lenoir](mailto:cedric.lenoir@hevs.ch)
 
 # Lab 03, Machine Interface
 
-:warning: there is a constant evolution of the UI, some widgets could have new parameters.
+:warning: There is a constant evolution of the UI, some widgets could have new parameters.
 
 **Prerequisites**
 [ADP Module 05_Machine Interface](https://github.com/hei-dls-adp/adp-docs/tree/main/ADP_Module_05_Machine_Interface)
@@ -38,7 +38,7 @@ In this practical exercise, we will take our first steps with a robot. It is imp
 <figure>
   <img src="./img/Node_Red_Function.png"
      alt="Image lost: Node_Red_Function"
-     width="200">
+     width="200"><br>
   <figcaption>Node-RED function</figcaption>
 </figure>
 </div>
@@ -49,7 +49,7 @@ Check if you can insert code for a function of this type:
 <figure>
   <img src="./img/Node_RED_Learning_Function_Hello_World.png"
      alt="Image lost: Node_RED_Learning_Function_Hello_World"
-     width="400">
+     width="400"><br>
   <figcaption>Node-RED function with 'Hello World!'</figcaption>
 </figure>
 </div>
@@ -87,7 +87,7 @@ In you first page, you can add 3 groups:
 <figure>
   <img src="./img/UI_CommandsAndStates.png"
      alt="Image lost: UI_CommandsAndStates"
-     width="600">
+     width="600"><br>
   <figcaption>Commands and states</figcaption>
 </figure>
 </div>
@@ -107,7 +107,7 @@ In you first page, you can add 3 groups:
 <figure>
   <img src="./img/UI_Gripper.png"
      alt="Image lost: UI_Gripper"
-     width="600">
+     width="600"><br>
   <figcaption>Gripper</figcaption>
 </figure>
 </div>
@@ -124,7 +124,7 @@ In you first page, you can add 3 groups:
 <figure>
   <img src="./img/RadioButtonSettings.png"
      alt="Image lost: RadioButtonSettings"
-     width="300">
+     width="300"><br>
   <figcaption>Radio button settings</figcaption>
 </figure>
 </div>
@@ -137,7 +137,7 @@ In you first page, you can add 3 groups:
 <figure>
   <img src="./img/UI_Robot_Axes.png"
      alt="Image lost: UI_Robot_Axes"
-     width="600">
+     width="600"><br>
   <figcaption>Robot axes</figcaption>
 </figure>
 </div>
@@ -155,7 +155,7 @@ Before you start the lab, your flows.json should display something like that:
 <figure>
   <img src="./img/UI_Robot_Overview.png"
      alt="Image lost: UI_Robot_Overview"
-     width="600">
+     width="600"><br>
   <figcaption>Robot overview</figcaption>
 </figure>
 </div>
@@ -190,7 +190,7 @@ At this step, you should insert:
 <figure>
   <img src="./img/Get_state_mode_and_date.png"
      alt="Image lost: Get_state_mode_and_date"
-     width="600">
+     width="600"><br>
   <figcaption>Get state mode and date</figcaption>
 </figure>
 </div>
@@ -201,7 +201,7 @@ To check: the Time is passing....
 <figure>
   <img src="./img/Commands_and_states.png"
      alt="Image lost: Commands_and_states"
-     width="600">
+     width="600"><br>
   <figcaption>Commands and states</figcaption>
 </figure>
 </div>
@@ -254,7 +254,7 @@ You should be able to connect to an axis.
 <figure>
   <img src="./img/Read_Axis_Position.png"
      alt="Image lost: Read_Axis_Position"
-     width="600">
+     width="600"><br>
   <figcaption>Read axes positions</figcaption>
 </figure>
 </div>
@@ -274,7 +274,7 @@ return newMsg;
 <figure>
   <img src="./img/Set_Axes_Positions.png"
      alt="Image lost: Set_Axes_Positions"
-     width="600">
+     width="600"><br>
   <figcaption>Set axes_positions</figcaption>
 </figure>
 </div>
@@ -325,7 +325,7 @@ This UML block tells you that a Function Block FB_Gripper has 3 properties, and 
 <figure>
   <img src="./img/Get_Gripper_Property.png"
      alt="Image lost: Get_Gripper_Property"
-     width="600">
+     width="600"><br>
   <figcaption>Get Gripper Property</figcaption>
 </figure>
 </div>
@@ -363,7 +363,7 @@ The flow you import will set internal variables. These internal variables will b
 <figure>
   <img src="./img/ContextWithLimits.png"
      alt="Image lost: ContextWithLimits"
-     width="600">
+     width="600"><br>
   <figcaption>Variable inside one flow</figcaption>
 </figure>
 </div>
@@ -380,7 +380,7 @@ The flow you import will set internal variables. These internal variables will b
 <figure>
   <img src="./img/M_EnableDevice.png"
      alt="Image lost: M_EnableDevice"
-     width="600">
+     width="600"><br>
   <figcaption>M_EnableDevice</figcaption>
 </figure>
 </div>
@@ -405,7 +405,7 @@ return newMsg;
 <figure>
   <img src="./img/M_SetOpen_M_SetClosed.png"
      alt="Image lost: M_SetOpen_M_SetClosed"
-     width="600">
+     width="600"><br>
   <figcaption>M SetOpen and M_SetClosed</figcaption>
 </figure>
 </div>
@@ -449,34 +449,35 @@ return newMsg;
 
 |Function|UI done |Linked|Tested|
 |--------|---|------|------|
-|Set Mode|
-|Read Mode|
-|Read Time|
-|Set Clear|
-|Set Reset|
-|Set Start|
-|Set Stop|
-|Read State|
-|
-|Set Open|
-|Set Close
-|Set TimeOut
-|Set Limit Open
-|Set Limit Closed
-|
-|Enable Gripper
-|Disable Gripper
-|Read InOp
-|Read IsClosed
-|Read IsOpen
-|
-|Read x position
-|Read y position
-|Read z position
-|Set x position
-|Set Y position
-|Set z position
+|Set Mode|               |||
+|Read Mode|              |||
+|Read Time|              |||
+|Set Clear|              |||
+|Set Reset|              |||
+|Set Start|              |||
+|Set Stop|               |||
+|Read State|             |||
+||||
+|Set Open|               |||
+|Set Close|              |||
+|Set TimeOut|            |||
+|Set Limit Open|         |||
+|Set Limit Closed|       |||
+||||
+|Enable Gripper|         |||
+|Disable Gripper|        |||
+|Read InOp|              |||
+|Read IsClosed|          |||
+|Read IsOpen|            |||
+||||
+|Read x position|        |||
+|Read y position|        |||
+|Read z position|        |||
+|Set x position|         |||
+|Set Y position|         |||
+|Set z position|         |||
 
+# Delivery 
 At the end of this work, you have to send you flow to the supervisor.
 
 <!-- First steps with a robot-->
