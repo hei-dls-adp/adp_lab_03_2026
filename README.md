@@ -23,9 +23,6 @@ Author: [Cédric Lenoir](mailto:cedric.lenoir@hevs.ch)
 
 In this practical exercise, we will take our first steps with a robot. It is important to keep in mind that we are not working with a commercial robot, but with a prototype robot. This robot is regularly programmed and used in various configurations by different students.
 
-## Table of Contents
-[[_TOC_]]
-
 ## Check your knowledge
 
 ### Function
