@@ -21,11 +21,6 @@ Author: [Cédric Lenoir](mailto:cedric.lenoir@hevs.ch)
 **Duration**
 2h
 
-## To be prepared in advance
-1.  The canevas for the machine UI.
-2.  The canevas for the axes.
-3.  The canvas for the gripper.
-
 In this practical exercise, we will take our first steps with a robot. It is important to keep in mind that we are not working with a commercial robot, but with a prototype robot. This robot is regularly programmed and used in various configurations by different students.
 
 ## Check your knowledge
@@ -62,26 +57,37 @@ return msg;
 
 ### Insert json script
 :bulb: In the lab you will have to insert/import a portion of json code in your flow.
-Check if you are able to import this file from the repository of the lab: ``..\adp_lab_03_2026\node_red_base\To Insert in your flows\``**HelloWorld.json**
+Check if you are able to import this file from the repository of the lab: `..\adp_lab_03_2026\node_red_base\To Insert in your flows\HelloWorld.json`
 
-
----
-
-## Summary
 
 ---
 
 # First part: at home.
+In order to monitor and control the robot using Node-RED, you need first to create a _dashboard_ (using _Dashboard 2_).
 
-Base layout for this page is : ``Notebook``.
-In you first page, you can add 3 groups:
+> Note: 
+> 
+> This is a homework for you and needs to be done before passing to the second part of the laboratory!
+
+> Note: In the second part of the laboratory we are going to set up the commands to monitor and control the robot using the _data layer_.
+
+The Dashboard is split into three groups:
+1.  A group for the machine UI: _Commands and states_ (monitoring)
+1.  A group to control the the _axes of the robot_ (to move the robot)
+1.  A group for the _gripper_ (allowing the robot to grasp objects)
+
+## Dashboard Page Setup
+Changes to be done on your dashboard page:
+
+- Base layout: ``Notebook``
+- Add 3 groups:
   - Commands and states
   - Gripper
   - Robot Axes
 ---
 
 ## Commands and states
-
+Replicate the content of the _Command and state_ group similar to the following UI (User Interface):
 
 <div align="center">
 <figure>
@@ -92,6 +98,9 @@ In you first page, you can add 3 groups:
 </figure>
 </div>
 
+> Note: You don't need to build exactly the same UI, but the **functionallity** needs to be the same!
+
+### Some Construction Hints
 - All widgets have a size of 3x1.
 - Buttons payload is ``TRUE.``
 - Select widget has value ``true`` for manual mode and ``false`` for auto mode
@@ -102,6 +111,7 @@ In you first page, you can add 3 groups:
 ---
 
 ## Gripper
+Create a similar UI for the _gripper_:
 
 <div align="center">
 <figure>
@@ -112,6 +122,7 @@ In you first page, you can add 3 groups:
 </figure>
 </div>
 
+###  Construction Hints
 - Size of SetOpen and SetClose is ``3x1``. Payload is ``true``.
 - Size of TimeOut Limit, Limit Open and Limit Closed is ``2x1``.
 - Inject 400 once for TimeOut and tooltip is ``Base is 400``.
@@ -132,6 +143,7 @@ In you first page, you can add 3 groups:
 ---
 
 ## Robot axes
+Create a similar UI for the _Robot axes_:
 
 <div align="center">
 <figure>
@@ -142,6 +154,7 @@ In you first page, you can add 3 groups:
 </figure>
 </div>
 
+### Construction Hints
 - Size of value + label X,Y,Z axis absolute position is ``2x1``.
 - Size of sliders is ``4x1``
 - Step of all sliders is ``1``, limits are ``-150`` to ``150``. Thumb ``On Drag``, 
@@ -149,7 +162,7 @@ In you first page, you can add 3 groups:
 ---
 
 ## Finally
-Before you start the lab, your flows.json should display something like that:
+Before you start the lab, your _flows.json_ should display something like that:
 
 <div align="center">
 <figure>
@@ -177,7 +190,7 @@ After connecting to the machine you should be able to:
 # Working with PackUI
 You should be able to connect to the machine using the PackUI
 
-Insert the DisplayAlarmsflows.json from ``\node_red_base\To Insert in your flows``, in a new group with label alarms, so you can have an overview of alarms and warnings if any.
+Insert the `DisplayAlarmsflows.json` from `\node_red_base\To Insert in your flows`, in a new group with label alarms, so you can have an overview of alarms and warnings if any.
 
 First link is easy to do. Browse to ``plc/app/Application/sym/PackTag/hevsUI/uiModeMasterCurrent``, then ``plc/app/Application/sym/PackTag/hevsPackTime/Date_and_time_string``, and ``plc/app/Application/sym/PackTag/hevsUI/uiStateMasterCurrent``.
 
@@ -355,7 +368,7 @@ return newMsg;
 ---
 
 ## Connect limits
-Limits does not send data to the PLC, they store local variables. As we still did not speak about local variables, you can simply **import** ``adp_lab_03_2026\node_red_base\To Insert in your flows\TimeAndLimitsflows.json`` and link nodes to your widgets.
+Limits does not send data to the PLC, they store local variables. As we still did not speak about local variables, you can simply **import** `adp_lab_03_2026\node_red_base\To Insert in your flows\TimeAndLimitsflows.json` and link nodes to your widgets.
 
 The flow you import will set internal variables. These internal variables will be used by the methods below.
 
