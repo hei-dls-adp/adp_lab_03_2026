@@ -13,6 +13,8 @@ Author: [Cédric Lenoir](mailto:cedric.lenoir@hevs.ch)
 
 # Lab 03, Machine Interface
 
+<strong style="color: red;">For 2027 in PLC code check what appehs with alarm gripper abort. It could lock the state machine</strong>
+
 :warning: There is a constant evolution of the UI, some widgets could have new properties.
 
 **Prerequisites**
